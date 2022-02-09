@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import { Title } from './components/Title'
-import logo from './logo.svg';
+import { Title }            from './components/Title/Title';
+import CarClass             from './components/Class/Car';
+import CarConstructor       from './components/Constructor/Car';
+import CarProps             from './components/Props/Car';
+import logo                 from './logo.svg';
 import './App.css';
 
 class App extends Component {
@@ -10,6 +13,18 @@ class App extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <Title>Title Component</Title>
+
+          <div className='Components'>
+            <CarClass/>
+            <CarConstructor/>
+            <CarProps/>
+            <CarProps
+              brand="Honda"
+              model="RB18"
+              color="Blue"
+              year="2022"
+            />
+          </div>
         </header>
       </div>
     );
