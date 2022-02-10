@@ -3,6 +3,8 @@ import { Title }            from './components/Title/Title';
 import CarClass             from './components/Class/Car';
 import CarConstructor       from './components/Constructor/Car';
 import CarProps             from './components/Props/Car';
+import Garage               from './components/Lists/Garage';
+
 import logo                 from './logo.svg';
 import './App.css';
 
@@ -24,6 +26,7 @@ class App extends Component {
               color="Blue"
               year="2022"
             />
+            <Garage/>
           </div>
         </header>
       </div>
