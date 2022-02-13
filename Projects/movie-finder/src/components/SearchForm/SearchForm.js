@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import './SearchForm.css';
 
+const API_KEY = 'd5165da';
+
 export class SearchForm extends Component {
     state = {
         inputMovie: ''
     }
-    
+
     _handleChange = (event) => {
         this.setState({
             inputMovie: event.target.value
@@ -13,9 +15,21 @@ export class SearchForm extends Component {
     }
     _handleSubmit = (event) => {
         event.preventDefault();
-        let movie   = this.state.inputMovie;
-        let message = (movie != '') ? '- Searching '+movie+'...' : '- Must type a movie';
-        alert(message);
+        let movie           = this.state.inputMovie;
+
+        if (movie !== '') {
+            fetch(`http://www.omdbapi.com/?apikey=${API_KEY}&s=${movie}`)
+            .then(result => result.json())
+            .then(results => {
+                console.log(results);
+                const { Search, totalResults } = results;
+                // alert('- Results to '+movie+': '+totalResults+' movies');
+                this.props.onResults(Search);
+                console.log(Search, totalResults);
+            });
+        } else {
+            alert('- Must type a movie!');
+        }
     }
 
     render() {

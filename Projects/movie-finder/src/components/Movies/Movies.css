@@ -1,0 +1,12 @@
+.Movies {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 1rem;
+    align-items: center;
+}
+
+.Movie {
+    margin: 1rem;
+    width: 20% !important;
+}
