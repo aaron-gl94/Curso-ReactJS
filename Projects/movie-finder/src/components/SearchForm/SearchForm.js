@@ -13,6 +13,7 @@ export class SearchForm extends Component {
             inputMovie: event.target.value
         })
     }
+
     _handleSubmit = (event) => {
         event.preventDefault();
         let movie           = this.state.inputMovie;
@@ -22,7 +23,7 @@ export class SearchForm extends Component {
             .then(result => result.json())
             .then(results => {
                 console.log(results);
-                const { Search, totalResults } = results;
+                const { Search = [], totalResults = "0" } = results;
                 // alert('- Results to '+movie+': '+totalResults+' movies');
                 this.props.onResults(Search);
                 console.log(Search, totalResults);
