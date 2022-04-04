@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { PropTypes } from "prop-types";
-import { Movie } from "./Movie";
+import React, { Component } from 'react';
+import { PropTypes } from 'prop-types';
+import { Movie } from './Movie';
 
 export class Movies extends Component {
     static propTypes = {
@@ -10,12 +10,14 @@ export class Movies extends Component {
     render() {
         const { movies } = this.props;
         return movies.map(movie => {
-          return  <Movie
-                    key={movie.imdbIDd}
-                    title={movie.Title}
-                    year={movie.Year}
-                    poster={movie.Poster}
-                  />
+            return  <div className="MovieCard" key={movie.imdbID}>
+                        <Movie        
+                            id={movie.imdbID}
+                            title={movie.Title}
+                            year={movie.Year}
+                            poster={movie.Poster}
+                        />
+                    </div>
         });
     }
 }
